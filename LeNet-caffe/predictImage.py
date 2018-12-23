@@ -14,7 +14,7 @@ err = 0
 for idx in range(len(labels)):
 	dimg = images[idx].reshape(28, 28)
 	retv = leNet.predict(dimg)
-	retv = np.exp(retv); retv = np.argmax(retv)
+	retv = leNet.softmax(retv); retv = np.argmax(retv)
 	if retv != labels[idx]:
 		print("retv: %d, labels[%d]: %d" % (retv, idx, labels[idx]))
 		err += 1
