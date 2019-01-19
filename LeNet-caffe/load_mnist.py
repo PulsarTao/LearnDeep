@@ -16,7 +16,7 @@ def load_mnist(path, kind='train'):
 	with open(images_path, 'rb') as imgpath:
 		magic, num, rows, cols = struct.unpack(">IIII", imgpath.read(16))
 		images = np.fromfile(imgpath, dtype=np.uint8).reshape(len(labels), 784)
-		images = (images / 255.0).astype(np.float32)
+		images = (images / 256.0).astype(np.float32)
 
 	return images, labels
 
